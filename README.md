@@ -2,7 +2,7 @@
 
 Public status page for the aikka platform and PharmaGEO, run by [Upptime](https://upptime.js.org).
 
-- Status page: https://aikka-ai.github.io/status/
+- Status page: https://status.aikka.ai/
 - Checks run every 5 minutes from GitHub Actions. Each outage opens an issue in this repository, which is closed automatically on recovery.
 - Configuration lives in [`.upptimerc.yml`](.upptimerc.yml). Change it through a pull request.
 

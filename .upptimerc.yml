@@ -47,15 +47,12 @@ graphBorderColor: "#404EFF"
 graphBackgroundColor: "#F5F4EF"
 
 status-website:
-  # Served at https://aikka-ai.github.io/status until status.aikka.ai points to GitHub Pages.
-  # Then: replace baseUrl with `cname: status.aikka.ai`.
-  baseUrl: /status
+  cname: status.aikka.ai
   logoUrl: https://aikka.ai/favicon.svg
   name: aikka status
   introTitle: "Service status for **aikka** and **PharmaGEO**"
   introMessage: "Availability of our websites, applications and APIs, checked every 5 minutes from outside our infrastructure. Incidents are posted on this page. Questions: [contact@aikka.ai](mailto:contact@aikka.ai)"
   theme: light
-  # The logo links back to the status home, so no "Status" item (a bare "/" breaks under baseUrl).
   navbar:
     - title: aikka
       href: https://aikka.ai
