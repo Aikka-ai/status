@@ -1,31 +1,75 @@
-# Change these first
-owner: upptime # Your GitHub organization or username, where this repository lives
-repo: upptime # The name of this repository
+# Public status page for aikka and PharmaGEO.
+# Workflows run with the built-in GITHUB_TOKEN (no personal access token).
+# The template auto-update workflows (setup, update-template, updates) were removed on purpose:
+# they rewrite .github/workflows, which GITHUB_TOKEN cannot push, and pull upptime@master nightly.
+# To upgrade Upptime, bump the pinned version in .github/workflows/*.yml through a pull request.
+owner: Aikka-ai
+repo: status
+
+skipDescriptionUpdate: true
+skipTopicsUpdate: true
+skipHomepageUpdate: true
+
+# Downtime issues are assigned here, so GitHub notifies the on-call engineer.
+assignees:
+  - AikkaPharma
 
 sites:
-  - name: Google
-    url: https://www.google.com
-  - name: Wikipedia
-    url: https://en.wikipedia.org
-  - name: Hacker News
-    url: https://news.ycombinator.com
-  - name: Secret Site
-    url: $SECRET_SITE
+  - name: aikka website
+    slug: aikka-website
+    url: https://aikka.ai
+    maxResponseTime: 15000
+  - name: aikka platform API
+    slug: aikka-platform-api
+    url: https://api-aikka-store-back-prod.aikka.ai/health
+    maxResponseTime: 15000
+    __dangerous__body_down_if_text_missing: '"status":"ok"'
+  - name: aikka data API
+    slug: aikka-data-api
+    url: https://api-aikka-data-prod.aikka.ai/health
+    maxResponseTime: 15000
+    __dangerous__body_down_if_text_missing: '"status":"ok"'
+  - name: PharmaGEO website
+    slug: pharmageo-website
+    url: https://pharma-geo.com
+    maxResponseTime: 15000
+  - name: PharmaGEO application
+    slug: pharmageo-application
+    url: https://app.pharma-geo.com
+    maxResponseTime: 15000
+  - name: PharmaGEO API
+    slug: pharmageo-api
+    url: https://api.aikka-pharma.com/health
+    maxResponseTime: 15000
+    __dangerous__body_down_if_text_missing: '"status":"ok"'
+
+graphBorderColor: "#404EFF"
+graphBackgroundColor: "#F5F4EF"
 
 status-website:
-  # Add your custom domain name, or remove the `cname` line if you don't have a domain
-  # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
-  cname: demo.upptime.js.org
-  # baseUrl: /your-repo-name
-  logoUrl: https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg
-  name: Upptime
-  introTitle: "**Upptime** is the open-source uptime monitor and status page, powered entirely by GitHub."
-  introMessage: This is a sample status page which uses **real-time** data from our [GitHub repository](https://github.com/upptime/upptime). No server required — just GitHub Actions, Issues, and Pages. [**Get your own for free**](https://github.com/upptime/upptime)
+  # Served at https://aikka-ai.github.io/status until status.aikka.ai points to GitHub Pages.
+  # Then: replace baseUrl with `cname: status.aikka.ai`.
+  baseUrl: /status
+  logoUrl: https://aikka.ai/favicon.svg
+  name: aikka status
+  introTitle: "Service status for **aikka** and **PharmaGEO**"
+  introMessage: "Availability of our websites, applications and APIs, checked every 5 minutes from outside our infrastructure. Incidents are posted on this page. Questions: [contact@aikka.ai](mailto:contact@aikka.ai)"
+  theme: light
+  # The logo links back to the status home, so no "Status" item (a bare "/" breaks under baseUrl).
   navbar:
-    - title: Status
-      href: /
-    - title: GitHub
-      href: https://github.com/$OWNER/$REPO
-
-# Upptime also supports notifications, assigning issues, and more
-# See https://upptime.js.org/docs/configuration
+    - title: aikka
+      href: https://aikka.ai
+    - title: PharmaGEO
+      href: https://pharma-geo.com
+  # aikka brand palette only (Figma): Ink, Orange, Signal, Soft White, Dwell, Cream, Paper; Ember as a rule line.
+  css: >-
+    :root{
+    --body-background-color:#F5F4EF;--body-text-color:#000000;
+    --card-background-color:#FFFFFF;--card-border-color:#F5F4EF;
+    --nav-background-color:#FFFFFF;--nav-border-bottom-color:#F5F4EF;--nav-current-border-bottom-color:#FF4000;
+    --up-border-left-color:#404EFF;--down-border-left-color:#FF4000;--degraded-border-left-color:#F36E40;
+    --down-background-color:#FFFED9;--change-background-color:#FFFED9;
+    --tag-color:#FFFFFF;--tag-up-background-color:#404EFF;--tag-down-background-color:#FF4000;--tag-degraded-background-color:#403233;
+    --error-button-border-color:#000000;--error-button-background-color:#000000;--error-button-color:#FFFFFF;
+    --submit-button-border-color:#000000;--submit-button-background-color:#000000;--submit-button-color:#FFFFFF;
+    --graph-opacity:1;--graph-filter:none}
