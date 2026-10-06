@@ -22,18 +22,20 @@
     "url": "https://api-aikka-store-back-prod.aikka.ai/health",
     "icon": "https://icons.duckduckgo.com/ip3/api-aikka-store-back-prod.aikka.ai.ico",
     "slug": "aikka-platform-api",
-    "status": "up",
+    "status": "down",
     "uptime": "100.00%",
-    "uptimeDay": "100.00%",
+    "uptimeDay": "99.99%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 623,
-    "timeDay": 695,
-    "timeWeek": 623,
-    "timeMonth": 623,
-    "timeYear": 623,
-    "dailyMinutesDown": {}
+    "time": 624,
+    "timeDay": 663,
+    "timeWeek": 624,
+    "timeMonth": 624,
+    "timeYear": 624,
+    "dailyMinutesDown": {
+      "2026-10-06": 0
+    }
   },
   {
     "name": "aikka data API",
